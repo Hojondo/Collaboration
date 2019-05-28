@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="panel">
+    <view class="title">
+      <image mode="widthFix" class="titleImg" mode="widthFix" src="/resources/img/logo.png"></image>
+    </view>
+  </view>
+  <view class="panel">
+    <view class="button-group">
+      <view wx:for="{{allTeams}}" wx:key="unique">
+        <button class="buttonTeam" bindtap="switchtabto">{{item}}</button>
+      </view>
+      <view class="button_f" id="newTeam" bindtap="newTeam">+创建新团队</view>
+      <view class="button_f" id="logOut">退出登录</view>
+    </view>
+  </view>
+  <view class="footer">
+    <modal show="{{showModal}}" height='100%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
+      <view class='modal-content'>
+        <view class="part">
+          <input id="newTeamName" class="modal-input" placeholder="点击输入团队名称"/>
+        </view>
+      </view>
+    </modal>
+  </view>
+</view>

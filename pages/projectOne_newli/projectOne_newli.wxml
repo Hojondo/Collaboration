@@ -1,0 +1,23 @@
+<!--pages/projectOne_newli/projectOne_newli.wxml-->
+<view class="part">
+    <input class="modal-input" placeholder="点击输入事项名称"></input>
+</view>
+<view class="part">
+    <picker value="{{employeeIndex}}" range="{{employee}}" bindchange="chooseOne">
+        <view class="tab-cell">
+            <image mode="widthFix" class="icon" src="/resources/img/icon/user.png"></image>
+            <view class="weui-cell__bd">选择负责人</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{employee[employeeIndex]}}</view>
+        </view>
+    </picker>
+    <picker  mode="date" value="{{date}}" bindchange="dateChange">
+        <view class="tab-cell">
+            <image mode="widthFix" class="icon" src="/resources/img/icon/time.png"></image>
+            <view class="weui-cell__bd">设置截止时间</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"><view wx:if="{{date}}">{{date}}</view></view>
+        </view>
+    </picker>
+</view>
+<view class="part">
+    <button class="">保存</button>
+</view>

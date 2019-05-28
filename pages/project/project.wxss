@@ -1,0 +1,20 @@
+/* pages/project/project.wxss */
+.addNew{
+    display: inline-block;
+    position: fixed;
+    bottom:0;
+    right: 0;
+}
+.addNew image{
+    width: 100rpx;
+    height:100rpx;
+}
+.weui-cell{
+    background: #ffffff;
+    font-size: 32rpx;
+    color: #000000;
+    padding:7rpx 15px;
+}
+.addImg{
+    width: 128rpx;
+}

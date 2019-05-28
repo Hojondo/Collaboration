@@ -1,0 +1,130 @@
+<!--pages/projectOne_liDetail/projectOne_liDetail.wxml-->
+<view class="container">
+    <view class="part">
+        <view class="tab-cell" bindtap="toProList">
+            <view class="projectName weui-cell__bd">{{allProjectsList[proIndex].projectName}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </view>
+    <view class="part">
+        <view class="tab-cell">
+            <icon type="circle" style="width:36rpx;margin-right:20rpx" size="20"></icon>
+            <view class="cell-title" bindtap="editContent">{{allProjectsList[proIndex].list[listIndex].li[liIndex].content}}</view>
+        </view>
+        <picker bindchange="bindEmployeeChange" value="{{index_employee}}" range="{{numbers}}">
+            <view class="tab-cell">
+                <image mode="widthFix" class="avatars" src="/resources/img/avatar.jpg"></image>
+                <block wx:if="{{allProjectsList[proIndex].list[listIndex].li[liIndex].name}}">
+                    <view class="weui-cell__bd">{{allProjectsList[proIndex].list[listIndex].li[liIndex].name}} 负责</view>
+                    <view class="weui-cell__ft" catchtap="cancelName"><icon type="clear" size="23"></icon></view>
+                </block>
+                <block wx:else>
+                    <view class="weui-cell__bd">未设置负责人</view>
+                </block>
+            </view>
+        </picker>
+
+        <picker  mode="date" value="{{allProjectsList[proIndex].list[listIndex].li[liIndex].time}}" bindchange="dateChange">
+            <view class="tab-cell">
+                <image mode="widthFix" src="/resources/img/icon/time.png"></image>
+                <block wx:if="{{allProjectsList[proIndex].list[listIndex].li[liIndex].time}}">
+                    <view class="weui-cell__bd">{{allProjectsList[proIndex].list[listIndex].li[liIndex].time}} 到期</view>
+                    <view class="weui-cell__ft " catch:tap="cancelTime"><icon type="clear" size="23"></icon></view>
+                </block>
+                <block wx:else>
+                    <view class="weui-cell__bd">未设置截止时间</view>
+                </block>
+            </view>
+        </picker>
+        <view class="liDetailContainer" bindtap="showDetail">
+            <image mode="widthFix" src="/resources/img/icon/liContent.png"></image>
+            <view class="" wx:if="{{allProjectsList[proIndex].list[listIndex].li[liIndex].detail}}"><text>{{allProjectsList[proIndex].list[listIndex].li[liIndex].detail}}</text></view>
+            <view style="color: #5C8CB4;" wx:else>添加事项描述</view>
+        </view>
+    </view>
+    <view class="part">
+        <view class="tab-cell" wx:for="{{allProjectsList[proIndex].list[listIndex].li[liIndex].reply}}" wx:for-index="replyIndex">
+            <image mode="widthFix" class="avatar replyAvatar" src="/resources/img/avatar.jpg"></image>
+            <view class="flexGrow">
+                <view class="reply_name">{{item.name}}</view>
+                <view class="reply_time"> {{item.time}}</view>
+                <view><text>{{item.content}}</text></view>
+                <view class="reply_img"><view wx:for="{{item.img}}"><image mode="widthFix"  src="{{item}}" data-src="{{item}}" data-replyimgs="{{allProjectsList[proIndex].list[listIndex].li[liIndex].reply[replyIndex].img}}" bindtap="previewImage"></image></view></view>
+            </view>
+        </view>
+    </view>
+    <view class="fixed">
+        <image mode="widthFix" class="fixImg" src="/resources/img/icon/addReply.png" bindtap="addReplyBtn"></image>
+        <image mode="widthFix" class="fixImg" src="/resources/img/icon/correct.png"></image>
+    </view>
+</view>
+<text class="end">——THE END——</text>
+
+<view class="footer">
+    <modal show="{{showModal_content}}" height='100%' bindcancel="modalCancel" bindconfirm='modalConfirm_content'>
+        <view class='modal-content'>
+            <view class="part"><textarea hidden="{{titleTextAreaHide}}" bindblur="textAreaBlur_content" class="modal-input" placeholder="点击输入输入事项标题" wrap="hard" value="{{allProjectsList[proIndex].list[listIndex].li[liIndex].content}}"/></view>
+            <view class="part">
+                <view class="tab-cell" bindtap="showMultiNumbers">
+                    <view class="weui-cell__bd">设置通知成员</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </view>
+        </view>
+    </modal>
+    <modal show="{{showModal_detail}}" height='100%' bindcancel="modalCancel" bindconfirm='modalConfirm_detail'>
+        <view class='modal-content'>
+            <view class="part">
+                <textarea bindblur="textAreaBlur" class="modal-input" placeholder="点击输入输入事项描述" wrap="hard" value="{{allProjectsList[proIndex].list[listIndex].li[liIndex].detail ? allProjectsList[proIndex].list[listIndex].li[liIndex].detail : ''}}"/>
+            </view>
+        </view>
+    </modal>
+    <modal show="{{showModal_multiNumbers}}" height='100%' bindcancel="modalCancel_mulitNumbers" bindconfirm='modalConfirm_multiNumbers'>
+        <view class='modal-content'>
+            <!--<input id="newTeamName" class="modal-input" placeholder="点击输入团队名称"/>-->
+            <view class="modalContainer">
+                <view class="part"><text>所有人</text></view>
+                <view class="part">
+                    <text class="modal-label" bindtap="allCheck">全部选择</text>
+                    <label class="tab-cell weui-check__label" wx:for="{{numbers}}" wx:for-index="numberIndex">
+                        <view class="weui-cell__hd">
+                            <checkbox value="{{item}}" checked="{{theEmployeeChecked[numberIndex]}}"/>
+                        </view>
+                        <view class="weui-cell__bd">{{item}}</view>
+                    </label>
+                </view>
+            </view>
+        </view>
+    </modal>
+    <modal show="{{showModal_addReply}}" height='100%' bindcancel="modalCancel" bindconfirm='modalConfirm_addReply'>
+        <view class='modal-content'>
+            <view class="part"><textarea hidden="{{titleTextAreaHide_reply}}" bindblur="textAreaBlur_reply" class="modal-input" wrap="hard" placeholder="点击输入回复"/></view>
+            <view class="part">
+                <!--todo 附件文件名-->
+                <button class="" bindtap="uploadImg">添加附件</button>
+            </view>
+            <view class="part">
+                <view class="tab-cell" bindtap="showMultiNumbers_reply">
+                    <view class="weui-cell__bd">设置通知成员</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </view>
+        </view>
+    </modal>
+    <modal show="{{showModal_multiNumbers_reply}}" height='100%' bindcancel="modalCancel_mulitNumbers_reply" bindconfirm='modalConfirm_multiNumbers_reply'>
+        <view class='modal-content'>
+            <view class="modalContainer">
+                <view class="part"><text class="modal-label">所有人</text></view>
+                <view class="part">
+                    <text class="modal-label" bindtap="allCheck">全部选择</text>
+                    <label class="tab-cell" wx:for="{{numbers}}" wx:for-index="numberIndex">
+                        <view class="weui-cell__hd">
+                            <checkbox value="{{item}}" checked="{{theEmployeeChecked[numberIndex]}}"/>
+                        </view>
+                        <view class="weui-cell__bd">{{item}}</view>
+                    </label>
+                </view>
+            </view>
+        </view>
+    </modal>
+</view>

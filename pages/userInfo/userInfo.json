@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "个人设置",
+  "navigationBarBackgroundColor": "#8EADC7",
+  "usingComponents": {
+    "modal": "../common/components/modal/modal"
+  }
+}

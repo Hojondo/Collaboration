@@ -1,0 +1,38 @@
+<!--pages/myteamInfo/myteamInfo.wxml-->
+<view class="part">
+    <view class="tab-cell" bindtap="changeTeamName">
+        <view class="label">团队名称</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{currentTeam_name}}</view>
+    </view>
+</view>
+<text class="title">团队信息</text>
+<view class="part">
+        <view class="tab-cell">
+            <view class="label">当前方案</view>
+            <view class="weui-cell__ft">{{currentTeam_scheme}}</view>
+        </view>
+        <view class="tab-cell">
+            <view class="label">项目数量</view>
+            <view class="weui-cell__ft">{{currentTeam_projectCount}}</view>
+        </view>
+        <view class="tab-cell">
+            <view class="label">到期时间</view>
+            <view class="weui-cell__ft">{{currentTeam_endtime}}</view>
+        </view>
+        <view class="tab-cell">
+            <view class="label">存储空间</view>
+            <view class="weui-cell__ft">{{currentTeam_storage}}</view>
+        </view>
+        <view class="tab-cell">
+            <view class="label">成员数量</view>
+            <view class="weui-cell__ft">{{currentTeam_employeeCount}}</view>
+        </view>
+</view>
+<view class="footer">
+<modal show="{{showModal}}" height='100%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
+    <view class='modal-content'>
+        <view class="part"><input id="newTeamName" class="modal-input" placeholder="点击修改团队名称"/></view>
+    </view>
+</modal>
+</view>
+

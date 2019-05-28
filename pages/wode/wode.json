@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "modal": "../common/components/modal/modal"
+  }
+}

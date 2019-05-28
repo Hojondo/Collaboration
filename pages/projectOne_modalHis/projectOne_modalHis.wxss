@@ -1,0 +1,41 @@
+/* pages/projectOne_modalHis/projectOne_modalHis.wxss */
+.container{
+    background: #ffffff;
+}
+.li{
+    display:flex;
+    align-items: start;
+    margin: 32rpx 0;
+}
+.li:first-child{
+    margin: 0 0 32rpx;
+}
+.li:last-child{
+    margin: 32rpx 0 0 ;
+}
+.li:last-child .content{
+    border: none;
+}
+.avatar{
+    margin: 0 26rpx;
+    flex-shrink: 0;
+}
+.content{
+    flex-grow: 1;
+    font-size: 28rpx;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 32rpx;
+}
+.name{
+    color: #353535;
+}
+.time{
+    color: #888888;
+}
+.modalLi{
+    font-size: 28rpx;
+    color: #888888;
+}
+.ib{
+    display: inline-block;
+}

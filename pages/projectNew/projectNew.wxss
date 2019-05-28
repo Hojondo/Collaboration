@@ -1,0 +1,29 @@
+/* pages/projectNew/projectNew.wxss */
+.taC,input,text{
+    padding:0 15px;
+}
+input,.taC,.cell{
+    background: #fff;
+}
+.taC{
+    /*padding: 0 10px;*/
+    /*真机测试有偏移，不得不减少padding*/
+}
+.cell{
+    margin-top: 10px;
+    padding:10px 15px;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+
+}
+.avator{
+    width: 60rpx;
+    height: 60rpx;
+}
+.panel{
+    margin-top: 10px;
+}

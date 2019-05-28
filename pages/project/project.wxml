@@ -1,0 +1,10 @@
+<!--pages/project/project.wxml-->
+<view class="weui-cell" wx:for="{{projectsName}}" bindtap="navigateTo">
+    <view class="weui-cell__hd">
+        <image mode="widthFix" src="/resources/img/icon/modal_icon.png" style="margin-right: 5px;vertical-align: middle;width:72rpx;"></image>
+    </view>
+    <view>{{item}}</view>
+</view>
+<navigator hover-class="none" hover-class="none" url="/pages/projectNew/projectNew" class="addNew">
+<image mode="widthFix" class="addImg" src="/resources/img/icon/add.png"></image>
+</navigator>

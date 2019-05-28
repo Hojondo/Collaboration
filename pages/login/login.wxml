@@ -1,0 +1,15 @@
+<!--pages/login/login.wxml-->
+<view class="panel">
+    <image mode="widthFix" src="/resources/img/logo.png"></image>
+</view>
+<view class="panel">
+    <form>
+        <input wx:if="{{currentStep === 'inputAccount'}}" placeholder="用户手机号码"/>
+        <input wx:else placeholder="{{(currentStep === 'bind')?'用户密码':'设置密码'}}"/>
+    </form>
+</view>
+<view class="panel">
+    <button wx:if="{{currentStep === 'inputAccount'}}" bindtap="nextStep" style="background:#fff;color:#000">下一步</button>
+    <button wx:elif="{{currentStep === 'bind'}}" bindtap="gotoIndex">登录</button>
+    <button wx:if="{{currentStep === 'register'}}" bindtap="gotoIndex">注册</button>
+</view>

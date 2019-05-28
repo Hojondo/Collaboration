@@ -1,0 +1,114 @@
+<!--pages/projectOne/projectOne.wxml-->
+<view class="tab">
+    <view class="topbar">
+        <view class="more"></view>
+        <view class="custom-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <button id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item}}</view>
+                </button>
+            </block>
+        </view>
+        <image mode="widthFix" class="more" src="/resources/img/icon/more.png" bindtap="openActionSheet"></image>
+    </view>
+        <view class="tab_content" hidden="{{activeIndex != 0}}">
+            <button class="newList" bindtap="newList">+新建事项清单</button>
+            <view class="part_white" wx:for="{{allProjectsList}}" wx:for-index="proIndex" wx:for-item="proItem" wx:if="{{proItem.projectName === currentProject}}">
+                    <block wx:for="{{proItem.list}}" wx:for-index="listIndex" wx:for-item="listItem">
+                        <view class="listName" bindtap="editList">{{listItem.listName}}</view>
+                        <view class="List padBoth" wx:for="{{listItem.li}}" wx:for-index="liIndex" wx:if="{{!item.done}}">
+                            <icon type="circle" size="23"></icon>
+                            <navigator hover-class="none" class="projectDetail" url="/pages/projectOne_liDetail/projectOne_liDetail?from=project&pro={{proIndex}}&list={{listIndex}}&li={{liIndex}}">{{item.content}} <view class="projectInfo">{{item.name}} {{item.time}}</view></navigator><!--todo 判断时间是否过期 {{currentTime>item.time}}-->
+                        </view>
+                        <navigator hover-class="none" class="newliP" url="/pages/projectOne_newli/projectOne_newli?new={{listItem.listName}}"><text class="padBoth">+添加事项</text></navigator>
+                    </block>
+            </view>
+            <view class="part">
+                <navigator hover-class="none" url="/pages/projectOne_doneList/projectOne_doneList" class="doneList"><button class="doneBtn">已完成事项</button></navigator>
+            </view>
+            <text class="end">——THE END——</text>
+            <navigator hover-class="none" class="newli" url="/pages/projectOne_newli/projectOne_newli?new=默认清单"><image mode="widthFix" class="footerImg" src="/resources/img/icon/newList.png"></image></navigator>
+        </view>
+        <view class="tab_content" hidden="{{activeIndex != 1}}">
+            <view class="part_white" wx:for="{{allProjectsList}}" wx:for-index="projectsIndex" wx:for-item="projectsItem" wx:key="*this" wx:if="{{projectsItem.projectName === currentProject}}">
+                    <block wx:for="{{projectsItem.modals}}" wx:for-index="modalIndex" wx:for-item="modalItem" wx:key="*this">
+                        <navigator hover-class="none" url="/pages/projectOne_modalHis/projectOne_modalHis?modal={{modalItem.modalName}}" class="tab-cell"><view class="modalName">{{modalItem.modalName}}</view><view class="weui-cell__ft weui-cell__ft_in-access">更新记录</view></navigator>
+                        <view class="List padBoth" wx:for="{{modalItem.workSet}}">
+                            <view class="done" wx:if="{{item.done}}">完成</view>
+                            <view class="projectDetail">{{item.content}} <view class="projectInfo">{{item.name}} {{item.time}}</view></view><!--todo 判断时间是否过期 {{currentTime>item.time}}-->
+                        </view>
+                        <navigator hover-class="none" class="newliP" url="/pages/projectOne_newWorkset/projectOne_newWorkset?new={{modalItem.modalName}}"><text class="padBoth">+添加工作集</text></navigator>
+                    </block>
+            </view>
+            <text class="end">——THE END——</text>
+            <view class="newModal" bindtap="newModal"><image mode="widthFix" class="footerImg" src="/resources/img/icon/newModal.png"></image></view>
+        </view>
+        <view class="tab_content" hidden="{{activeIndex != 2}}">
+            <view class="part">
+                <view class="List padBoth" wx:for="{{fadeFiles}}" bindtap="downLoadFile">
+                    <image mode="widthFix" class="typeImg" src="/resources/img/icon/project.png"></image>
+                    <view class="file_grow">
+                        <view class="file_title">{{item.name}}</view>
+                        <view class="file_owner"><image mode="widthFix" class="ownerAvatar" src="/resources/img/avatar.jpg"></image><view>{{item.owner}}</view></view>
+                        <view class="file_time">{{item.upTime}}</view>
+                        <view class="file_size">{{item.size}}</view>
+                    </view>
+                </view>
+            </view>
+            <text class="end">——THE END——</text>
+            <view class="uploadImg" bindtap="uploadImg"><image mode="widthFix" class="footerImg" src="/resources/img/icon/upload.png"></image></view>
+        </view>
+</view>
+<view class="footer">
+<!--事项的modal-->
+    <modal show="{{showModal_newList}}" height='100%' bindconfirm='modalConfirm_newList'>
+        <view class='modal-content'>
+            <view class="modal-label"><text>新建清单</text></view>
+            <view class="part"><input id="newTeamName" class="modal-input" placeholder="点击输入清单名称"/></view>
+        </view>
+    </modal>
+    <modal show="{{showModal_editList}}" height='100%' bindconfirm='modalConfirm_editList'>
+        <view class='modal-content'>
+            <view class="modal-label"><text>编辑清单</text></view>
+            <view class="part"><input id="newTeamName" class="modal-input" placeholder="点击输入清单名称"/></view>
+        </view>
+    </modal>
+</view>
+<view class="footer">
+<!--模型的modal-->
+    <modal show="{{showModal_newModal}}" height='100%' bindconfirm='modalConfirm_newModal'>
+        <view class='modal-content'>
+            <view class="modal-label"><text>新建模型</text></view>
+            <view class="part"><input id="newTeamName" class="modal-input" placeholder="点击输入模型名称"/></view>
+        </view>
+    </modal>
+</view>
+<view class="footer">
+    <!--更多 的modal-->
+    <modal show="{{showModal_editPro}}" height='100%' bindconfirm='modalConfirm_editPro'>
+        <view class='modal-content'>
+            <view class="modal-label"><h5>编辑项目：</h5></view>
+            <view class="modal-label"><text>项目名称</text></view>
+            <view class="part"><input class="modal-input" placeholder="点击输入项目名称"/></view>
+            <view class="modal-label"><text>项目描述</text></view>
+            <view class="part"><textarea class="modal-input" placeholder="点击输入项目描述"/></view>
+        </view>
+    </modal>
+
+    <modal show="{{showModal_checkProNumber}}" height='100%' bindconfirm='modalConfirm_checkProNumber'>
+        <view class='modal-content'>
+            <view class="modalContainer">
+                <view class="modal-label"><text>所有人</text></view>
+                <view class="part">
+                    <view class="modal-label"><text bindtap="allCheck">全部选择</text></view>
+                    <label class="tab-cell" wx:for="{{numbers}}" wx:for-index="numberIndex">
+                        <view class="weui-cell__hd">
+                            <checkbox value="{{item}}" checked="{{theEmployeeChecked[numberIndex]}}"/>
+                        </view>
+                        <view class="weui-cell__bd">{{item}}</view>
+                    </label>
+                </view>
+            </view>
+        </view>
+    </modal>
+</view>

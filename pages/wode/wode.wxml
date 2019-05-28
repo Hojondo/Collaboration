@@ -1,0 +1,50 @@
+<!--pages/wode/wode.wxml-->
+<view class="tab">
+    <view class="topbar panel">
+        <navigator hover-class="none" url="/pages/userInfo/userInfo" class="avator">
+            <image mode="widthFix" class="avatar" src="{{avator}}"></image>
+        </navigator>
+        <view class="custom-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <button id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item}}</view>
+                </button>
+            </block>
+        </view>
+        <navigator hover-class="none" url="/pages/wodeSearch/wodeSearch" class="search">
+            <icon class="titleImg" type="search"></icon>
+        </navigator>
+    </view>
+    <view class="tab_content" hidden="{{activeIndex != 0}}">
+        <view class="part" wx:for="{{allProjectsList}}" wx:for-index="projectsIndex" wx:for-item="projectsItem" wx:key="*this">
+            <navigator hover-class="none" url="/pages/projectOne/projectOne?project={{projectsItem.projectName}}" class="tab-cell" wx:if="{{userNameMap.listProObj[projectsItem.projectName]}}"><view class="projectName">{{projectsItem.projectName}}</view><view class="weui-cell__ft weui-cell__ft_in-access"></view></navigator>
+            <block wx:for="{{projectsItem.list}}" wx:for-index="listIndex" wx:for-item="listItem" wx:key="*this">
+                <view class="listName">{{listItem.listName}}</view>
+                <navigator hover-class="none" class="List padBoth" wx:for="{{listItem.li}}" wx:for-index="liIndex" url="/pages/projectOne_liDetail/projectOne_liDetail?from=wode&pro={{projectsIndex}}&list={{listIndex}}&li={{liIndex}}" wx:if="{{item.name === userName}}">
+                    <icon type="{{item.done?'success':'circle'}}" size="23"></icon>
+                    <view class="projectDetail">{{item.content}}<view class="projectInfo">{{item.name}} {{item.time}}</view></view>
+                </navigator>
+            </block>
+        </view>
+        <text class="end">——THE END——</text>
+    </view>
+    <view class="tab_content" hidden="{{activeIndex != 1}}">
+        <view class="part" wx:for="{{allProjectsList}}" wx:for-index="projectsIndex" wx:for-item="projectsItem" wx:key="*this" wx:if="{{userNameMap.modalProObj[projectsItem.projectName]}}"><!--<view wx:if="{{!userNameMap.modalProArray.includes(projectsItem.projectName)}}"> 不支持调用函数，把结果统一放对象里-->
+            <view class="tab-cell"><view class="projectName">{{projectsItem.projectName}}</view><view class="weui-cell__ft"></view></view>
+            <block wx:for="{{projectsItem.modals}}" wx:for-index="modalIndex" wx:for-item="modalItem" wx:key="*this">
+                <view class="listName model-cell" bindtap="checkModalHis"><view><image mode="widthFix" class="icon" src="/resources/img/icon/modal_icon.png"></image>{{modalItem.modalName}}</view><view class="weui-cell__ft weui-cell__ft_in-access">更新记录</view></view><!--wx:if="{{userNameMap.modalObj[projectsItem.projectName]}}"-->
+                <view class="List padBoth" wx:for="{{modalItem.workSet}}">
+                    <block wx:if="{{item.name == userName}}">
+                        <view class="done" wx:if="{{item.done}}">完成</view>
+                        <view class="projectDetail">
+                            {{item.content}}<view class="projectInfo ">{{item.name}} {{item.time}}</view>
+                            <!--todo 判断时间是否过期 {{currentTime>item.time}}-->
+                        </view>
+                    </block>
+                </view>
+            </block>
+        </view>
+        <text class="end">——THE END——</text>
+    </view>
+
+</view>

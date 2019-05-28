@@ -1,0 +1,38 @@
+<!--pages/userInfo/userInfo.wxml-->
+<view class="page">
+    <view class="userinfo weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+        </view>
+        <view class="weui-cell__bd">
+            <open-data class="userinfo-nickname" type="userNickName"></open-data>
+            <view class="userinfo-number">{{userPhone}}</view>
+        </view>
+    </view>
+  <view class="part">
+      <navigator hover-class="none" class="tab-cell" url="/pages/index/index">
+          <view class="weui-cell__bd">切换团队</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">当前团队XX</view>
+      </navigator>
+      <view url="" class="tab-cell" bindtap="changeName">
+          <view class="weui-cell__bd">修改名字</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <navigator hover-class="none" class="tab-cell" url="">
+          <view class="weui-cell__bd">邀请同事加入团队</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+  </view>
+  <view class="part">
+      <button>退出登录</button>
+  </view>
+    <view class="footer">
+        <modal show="{{showModal}}" height='100%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
+            <view class='modal-content'>
+                <view class="part">
+                    <input id="newTeamName" class="modal-input" placeholder="点击修改名字"/>
+                </view>
+            </view>
+        </modal>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加工作集",
+  "usingComponents": {
+    "modal": "../common/components/modal/modal"
+  }
+}

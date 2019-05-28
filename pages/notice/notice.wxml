@@ -1,0 +1,12 @@
+<!--pages/notice/notice.wxml-->
+<block wx:if="{{notices.length}}">
+    <view class="li" wx:for="{{notices}}">
+        <image mode="widthFix" class="avatar" src="{{item.avatar}}" />
+        <view class="content">
+            <view class="time">{{item.time}}</view>
+            <view class="title">{{item.situation}}</view>
+            <view class="desc">{{item.relation}}</view>
+        </view>
+    </view>
+    <text class="end">——THE END——</text>
+</block>

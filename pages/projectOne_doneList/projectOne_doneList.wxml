@@ -1,0 +1,19 @@
+<!--pages/projectOne_doneList/projectOne_doneList.wxml-->
+<view class="container">
+    <block wx:for="{{allProjectsList}}" wx:for-index="proIndex" wx:for-item="proItem" wx:if="{{(proItem.projectName === currentProject) && listHasDone.listProObj[currentProject]}}">
+        <view class="part">
+            <view class="tab-cell" bindtap="backToProject"><view class="projectName">{{proItem.projectName}}</view><view class="weui-cell__ft weui-cell__ft_in-access"></view></view>
+        </view>
+        <view class="part" wx:for="{{proItem.list}}" wx:for-index="listIndex" wx:for-item="listItem">
+            <view class="listName" bindtap="editList" wx:if="{{listHasDone.listObj[listItem.listName]}}">{{listItem.listName}}</view>
+            <view class="List padBoth" wx:for="{{listItem.li}}" wx:for-index="liIndex" wx:if="{{item.done}}">
+                <icon type="success" size="23"></icon>
+                <navigator hover-class="none" class="projectDetail" url="/pages/projectOne_liDetail/projectOne_liDetail?from=projectDone&pro={{proIndex}}&list={{listIndex}}&li={{liIndex}}">{{item.content}}<view class="projectInfo">{{item.name}} {{item.time}}</view></navigator>
+                <!--todo 判断时间是否过期 {{currentTime>item.time}}-->
+            </view>
+        </view>
+    </block>
+    <view wx:for="{{allProjectsList}}" wx:for-item="proItem" wx:if="{{(proItem.projectName === currentProject) && !listHasDone.listProObj[currentProject]}}">
+        <text>当前项目没有已完成事项</text>
+    </view>
+</view>

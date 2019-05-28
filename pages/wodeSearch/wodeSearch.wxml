@@ -1,0 +1,37 @@
+<!--pages/wodeSearch/wodeSearch.wxml-->
+<view class="container">
+    <view class="part">
+        <input class="modal-input" placeholder="输入搜索内容" bindblur="getSearchContent"/>
+    </view>
+    <button class="btn" bindtap="showModalTap">搜索</button>
+</view>
+<view class="footer">
+    <modal show="{{showModal}}" height='100%'>
+        <view>
+            <view class="part">
+                <picker bindchange="bindRangeChange" value="{{index_range}}" range="{{projectsName}}">
+                    <view class="tab-cell">
+                        <view class="weui-cell__bd">搜索范围</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access" >{{projectsName[index_range]}}</view>
+                    </view>
+                </picker>
+                <picker bindchange="bindNumbersChange" value="{{index_numbers}}" range="{{numbers}}">
+                    <view class="tab-cell">
+                        <view class="weui-cell__bd">相关成员</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access">{{numbers[index_numbers]}}</view>
+                    </view>
+                </picker>
+                <picker bindchange="bindTypesChange" value="{{index_types}}" range="{{types}}">
+                    <view class="tab-cell noBorder">
+                        <view class="weui-cell__bd">类型</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access">{{types[index_types]}}</view>
+                    </view>
+                </picker>
+            </view>
+            <text class="modal-label">搜索结果</text>
+            <view class="part">
+                <view class="tab-cell">拿到结果</view>
+            </view>
+        </view>
+    </modal>
+</view>

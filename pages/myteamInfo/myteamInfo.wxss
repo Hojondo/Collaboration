@@ -1,0 +1,11 @@
+/* pages/myteamInfo/myteamInfo.wxss */
+
+text.title{
+    font-size: 28rpx;
+    color: #888888;
+    margin: 32rpx 0 32rpx 50rpx;
+}
+.weui-cell__ft{
+    font-size: 26rpx;
+    color: #888888;
+}

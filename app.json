@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+
+    "pages/projectOne_modalHis/projectOne_modalHis",
+    "pages/wodeModalHis/wodeModalHis",
+    "pages/projectOne_newWorkset/projectOne_newWorkset",
+    "pages/projectOne_newli/projectOne_newli",
+    "pages/projectOne/projectOne",
+    "pages/projectOne_doneList/projectOne_doneList",
+    "pages/projectOne_liDetail/projectOne_liDetail",
+    "pages/myteam/myteam",
+    "pages/projectNew/projectNew",
+    "pages/project/project",
+    "pages/wode/wode",
+    "pages/loseconnect/loseconnect",
+    "pages/notice/notice",
+    "pages/myteamInfo/myteamInfo",
+    "pages/wodeSearch/wodeSearch",
+    "pages/userInfo/userInfo",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color":"#888888",
+    "selectedColor" : "#5C8CB4",
+    "list": [
+      {
+        "iconPath": "resources/img/icon/user.png",
+        "selectedIconPath": "resources/img/icon/user_s.png",
+        "pagePath": "pages/wode/wode",
+        "text": "我的"
+      },
+      {
+        "iconPath": "resources/img/icon/project.png",
+        "selectedIconPath": "resources/img/icon/project_s.png",
+        "pagePath": "pages/project/project",
+        "text": "项目"
+      },
+      {
+        "iconPath": "resources/img/icon/notice.png",
+        "selectedIconPath": "resources/img/icon/notice_s.png",
+        "pagePath": "pages/notice/notice",
+        "text": "通知"
+      },
+      {
+        "iconPath": "resources/img/icon/team.png",
+        "selectedIconPath": "resources/img/icon/team_s.png",
+        "pagePath": "pages/myteam/myteam",
+        "text": "团队"
+      }
+    ]
+  }
+}

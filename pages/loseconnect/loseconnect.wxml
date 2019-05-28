@@ -1,0 +1,5 @@
+<!--pages/loseconnect/loseconnect.wxml-->
+<view class="main">
+    <text class="title">网络已断开</text>
+    <text class="p">请连接网络后，点击空白刷新</text>
+</view>

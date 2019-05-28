@@ -1,0 +1,91 @@
+/* pages/projectOne_liDetail/projectOne_liDetail.wxss */
+.projectName{
+    display: flex;
+    align-items: center;
+}
+.projectName::before{
+    content: '项目';
+    font-size: 24rpx;
+    border: 1px solid #DDDDDD;
+    border-radius: 5rpx;
+    margin-right: 10rpx;
+}
+.cell-title{
+    flex-grow: 1;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #353535;
+}
+.tab-cell{
+    font-size: 28rpx;
+    color: #353535;
+    border-bottom: none;
+}
+.liDetailContainer{
+    display: flex;
+    justify-content: flex-start;
+    font-size:28rpx;
+    line-height: 28rpx;
+    color:#353535;
+    align-items:center;
+    padding:0 20rpx 32rpx 0;
+    margin:32rpx 0 0 50rpx;
+    vertical-align:middle;
+}
+.replyAvatar{
+    align-self: flex-start;
+}
+.reply_time{
+    font-size: 22rpx;
+    color: #b2b2b2;
+}
+.reply_img{
+    display: flex;
+    width: 100%;
+}
+.reply_img view{
+    flex-grow: 1;
+    min-width: 34%;
+    margin:0 20rpx 0 0;
+}
+.reply_img image{
+    width: 100%;
+    margin: 0;
+}
+.reply_name,.reply_time{
+    display: inline-block;
+    margin-right: 1em;
+}
+.flexGrow{
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 16rpx;
+}
+.fixed{
+    position: fixed;
+    right: 40rpx;
+    bottom: 40rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    background: #ffffff;
+    border-radius: 0;
+}
+button::after{
+    border: none;
+}
+image{
+    width: 36rpx;
+    margin: 0 20rpx 0 0;
+    vertical-align: middle;
+}
+.fixImg{
+    border-radius: 50%;
+    width: 128rpx;
+    display: block;
+    margin: 5px 0;
+}
+.avatars{
+    border-radius: 50%;
+}

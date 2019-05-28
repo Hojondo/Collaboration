@@ -1,0 +1,44 @@
+/* pages/projectOne_doneList/projectOne_doneList.wxss */
+.projectName{
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #888888;
+}
+.projectName::before{
+    content: '项目';
+    font-size: 24rpx;
+    border: 1px solid #DDDDDD;
+    border-radius: 5rpx;
+    margin-right: 10rpx;
+}
+.listName{
+    font-weight: bold;
+    font-size: 32rpx;
+    color: #000000;
+    margin-left: 50rpx;
+    border: 0 solid #DDDDDD;
+    /*border-top-width: 1rpx;*/
+    padding: 32rpx 20rpx 0 0;
+}
+.List{
+    display: flex;
+    align-items: flex-start;
+    margin: 32rpx 0;
+    font-size: 32rpx;
+}
+.List:last-child{
+    margin: 32rpx 0 0;
+    padding-bottom: 32rpx;
+}  /*小程序的坑：margin-bottom不能撑起父元素*/
+.projectDetail{
+    margin: 0 20rpx;
+}
+.projectInfo{
+    font-size: 26rpx;
+    color: #888888;
+}
+
+.part{
+    background: #ffffff;
+}

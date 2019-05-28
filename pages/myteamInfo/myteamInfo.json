@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "团队信息",
+  "usingComponents": {
+    "modal": "../common/components/modal/modal"
+  }
+}

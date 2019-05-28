@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加事项",
+  "usingComponents": {
+    "modal": "../common/components/modal/modal"
+  }
+}

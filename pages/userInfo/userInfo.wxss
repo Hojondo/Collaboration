@@ -1,0 +1,55 @@
+/* pages/userInfo/userInfo.wxss */
+.container{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(192, 192, 192, .2);
+}
+.infoview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #8EADC7;
+}
+.userinfo-avatar {
+  width: 144rpx;
+  height: 144rpx;
+  margin: 20rpx 20rpx 20rpx 0;
+  border-radius: 50%;
+}
+.userinfo{
+  background: #8EADC7;
+}
+.userinfo-nickname {
+  font-weight:bold;
+  font-size:34rpx;
+  color: #000000;
+  width:auto;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  word-wrap:normal;
+  word-wrap:break-word;
+  word-break:break-all;
+
+}
+.userinfo-number{
+  font-weight: normal;
+  font-size:34rpx;
+  color: #000;
+}
+.weui-cell__ft_in-access{
+  color: #888888;
+  font-size: 26rpx;
+}
+button{
+  color: #5C8CB4;
+  background: #ffffff;
+  font-size: 32rpx;
+  border-radius: 0;
+  padding:7rpx 0;
+}
+button::after{
+  border: none;
+}

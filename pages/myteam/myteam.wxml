@@ -1,0 +1,17 @@
+<!--pages/myteam/myteam.wxml-->
+<view class="header">
+    <navigator hover-class="none" url="/pages/index/index"><image mode="widthFix" class="headicon" src="/resources/img/icon/swap.png"></image></navigator>
+    <text>所有人</text>
+    <navigator hover-class="none" url="/pages/myteamInfo/myteamInfo"><image mode="widthFix" class="headicon" src="/resources/img/icon/info-circle.png"></image></navigator>
+</view>
+<button open-type="share">+邀请新成员</button>
+<view class="part">
+    <block wx:for="{{allEmployee}}">
+        <view class="tab-cell">
+            <image mode="widthFix" class="avatar" src="{{item.avator}}"></image>
+            <view class="name">{{item.name}}</view>
+        </view>
+    </block>
+</view>
+<text class="end">——THE END——</text>
+

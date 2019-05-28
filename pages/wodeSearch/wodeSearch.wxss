@@ -1,0 +1,26 @@
+/* pages/wodeSearch/wodeSearch.wxss */
+.container{
+    padding-top: 20rpx;
+}
+.weui-input{
+    padding:10px 15px;
+    background: #ffffff;
+}
+.weui-panel:first-child{
+    margin-bottom: 10px;
+}
+.btn{
+    color: #fff;
+    background: #5C8CB4;
+    margin: 10px 15px;
+}
+.weui-cell__ft_in-access{
+    color: #888888;
+    font-size: 26rpx;
+}
+picker .tab-cell{
+    border-bottom: 1px solid #DDDDDD!important;
+}
+picker:last-child .tab-cell{
+    border-bottom: 0!important;
+}

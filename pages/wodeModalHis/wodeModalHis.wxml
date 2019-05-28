@@ -1,0 +1,17 @@
+<!--pages/wodeModalHis/wodeModalHis.wxml-->
+<view class="container">
+    <view wx:if="{{notices.length}}" wx:for="{{notices}}" class="li">
+        <image class="avatar" mode="widthFix" src="{{item.avator}}"/>
+        <view class="content">
+            <view>
+                <view class="name ib">{{item.name}}</view>
+                <text class="time ib" space="emsp" decode="true">&nbsp;{{item.time}}</text>
+            </view>
+            <view class="modalLi ib" wx:for="{{item.modalLi}}">
+                {{item}}<text space="emsp" decode="true">&nbsp;</text>
+            </view>
+            <view class="desc">{{item.content}}</view>
+        </view>
+    </view>
+</view>
+<text class="end">——THE END——</text>

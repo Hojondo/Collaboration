@@ -1,0 +1,17 @@
+/* pages/projectOne_newli/projectOne_newli.wxss */
+.icon{
+    margin-right: 10rpx;
+    vertical-align: middle;
+    width: 5rpx;
+}
+.tab-cell{
+    margin: 0!important;
+    padding: 20rpx!important;
+}
+button{
+    background: #ffffff;
+    border-radius: 0;
+}
+button::after{
+    border: none;
+}

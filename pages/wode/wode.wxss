@@ -1,0 +1,119 @@
+/* pages/wode/wode.wxss */
+.tab{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+/* top start*/
+.topbar{
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items:center;
+    background: #ffffff;
+    font-size: 32rpx;
+    color: #888888;
+    border: 0 solid #DDDDDD;
+    border-bottom-width: 1rpx;
+}
+.custom-navbar{
+    padding:10px 0;
+    width: 50%;
+    border: 0;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
+    z-index:500;
+    top:0;
+}
+.weui-navbar__item{
+    background: none;
+    padding: 0;
+}
+.weui-navbar__item::after{
+    border: none;
+}
+.weui-bar__item_on .weui-navbar__title{
+    color: #5C8CB4;
+    border-bottom: 6rpx solid #5C8CB4;
+}
+.avator,.search{
+    border-radius: 50%;
+    overflow: hidden;
+}
+/* top end*/
+/* content start*/
+.container{
+    background: #F4F4F4;
+}
+.tab_content{
+    width: 100%;
+    background:#F4F4F4;
+    overflow: auto;
+}
+.tab-cell{
+    font-size: 28rpx;
+    color: #888888;
+    border-bottom: 0;
+}
+.weui-cell__ft_in-access{
+    font-size: 26rpx;
+    font-weight: normal;
+}
+.projectName{
+    display: flex;
+    align-items: center;
+}
+.projectName::before{
+    content: '项目';
+    font-size: 24rpx;
+    border: 1px solid #DDDDDD;
+    border-radius: 5rpx;
+    margin-right: 10rpx;
+}
+.listName{
+    font-weight: bold;
+    font-size: 32rpx;
+    color: #000000;
+    margin-left: 32rpx;
+    border: 0 solid #DDDDDD;
+    border-top-width: 1rpx;
+    padding: 32rpx 20rpx 0 0;
+}
+.model-cell{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.List{
+    display: flex;
+    align-items: flex-start;
+    margin: 32rpx 0;
+    font-size: 32rpx;
+}
+.List:last-child{
+    margin: 32rpx 0 0;
+    padding-bottom: 32rpx;
+}  /*小程序的坑：margin-bottom不能撑起父元素*/
+.projectDetail:nth-child(2){
+    margin: 0 20rpx;
+}
+.projectInfo{
+    font-size: 26rpx;
+    color: #888888;
+}
+.done{
+    font-size: 24rpx;
+    line-height: 30rpx;
+    height: 30rpx;
+    margin-top: 10rpx;
+    padding: 0 5rpx;
+    border-radius: 5rpx;
+    background: #60BF40;
+    color: #DFF2D9;
+}
+.icon{
+    width: 48rpx!important;
+    margin-right:10rpx;
+}
+/* content end*/
