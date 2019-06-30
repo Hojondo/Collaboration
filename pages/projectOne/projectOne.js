@@ -47,13 +47,13 @@ Page({
               name : '协同大师V1.0',
               type : 'rar',
               size : '1.4MB',
-              owner : '陆辉',
+              owner : 'xx',
               upTime : '2018-08-06'
           },{
               name : '协同大师V2.0',
               type : 'rar',
               size : '1.4MB',
-              owner : '陆辉',
+              owner : 'xx',
               upTime : '2018-08-26'
           },{
               name : '协同大师V3.0',
@@ -65,7 +65,7 @@ Page({
               name : '协同大师V4.0',
               type : 'docx',
               size : '1.4MB',
-              owner : '陆辉',
+              owner : 'xx',
               upTime : '2018-08-16'
           }
       ]

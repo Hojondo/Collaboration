@@ -12,9 +12,11 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.4",
-	"appid": "wx5405109553e4fc8d",
-	"projectname": "work_HWCMmini",
+	"appid": "wx937d5e5fc103fd22",
+	"projectname": "Collaboration",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

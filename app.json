@@ -2,7 +2,6 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-
     "pages/projectOne_modalHis/projectOne_modalHis",
     "pages/wodeModalHis/wodeModalHis",
     "pages/projectOne_newWorkset/projectOne_newWorkset",
@@ -28,8 +27,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color":"#888888",
-    "selectedColor" : "#5C8CB4",
+    "color": "#888888",
+    "selectedColor": "#5C8CB4",
     "list": [
       {
         "iconPath": "resources/img/icon/user.png",
@@ -56,5 +55,6 @@
         "text": "团队"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

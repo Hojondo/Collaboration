@@ -25,7 +25,7 @@ App({
   globalData: {
       userInfo: null,
       allEmployee: [{name:'员工1'}, {name:'员工2'},{name:'员工3'}],
-      allTeams : ['红瓦科技研发中心','红瓦科技销售部','族库大师运营中心','红瓦科技研发中心2','红瓦科技2'],
+      allTeams : ['科技研发中心','科技销售部','族库大师运营中心'],
       allProjectsList : [
           {
               projectName : '海钓施工项目',
