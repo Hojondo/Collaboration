@@ -8,7 +8,7 @@ Page({
     notices : [{
         avatar : '/resources/img/avatar.jpg',
         time:'12.30',
-        situation :'陈锟锟 将  显示 士大夫后很快就好几个身份士大夫sd士大夫收到士大夫士大夫 交换空间和厉害 科幻电视剧和考虑 联合国hi哦规划 i和深度',
+        situation :'宋扽懂 将  显示 士大夫后很快就好几个身份士大夫sd士大夫收到士大夫士大夫 交换空间和厉害 科幻电视剧和考虑 联合国hi哦规划 i和深度',
         relation :'sd sdf 的身份士大夫sd士大夫收到士大夫士大夫 交换空间和厉害 科幻电视剧和考虑 联合国hi哦规划 i和深度和 是的'
     },{
         avatar : '/resources/img/avatar.jpg',
